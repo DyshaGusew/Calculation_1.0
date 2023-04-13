@@ -40,7 +40,7 @@
         <Button Grid.Column="1" Grid.Row="4" FontSize="30">0</Button>
         <Button Grid.Column="2" Grid.Row="4" FontSize="30">x²</Button>
 
-        <Button Grid.Column="0" Grid.Row="4" FontSize="30">,</Button>
+        <Button Grid.Column="0" Grid.Row="4" FontSize="35">,</Button>
 
         <Button Grid.Column="3" Grid.Row="1" FontSize="45">«</Button>
         <Button Grid.Column="4" Grid.Row="1" FontSize="30">AC</Button>
