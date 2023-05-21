@@ -1,25 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Calculation_1._0
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
         public MainWindow()
         {
@@ -47,7 +36,29 @@ namespace Calculation_1._0
 
                 case "=":
                     string value = new DataTable().Compute(textUp.Text, null).ToString();
+                    value = value.Replace(",",".");
                     textUp.Text = value;
+                    break;
+
+                case ",":
+                    textUp.Text += ".";
+                    break;
+
+                case "x²":
+                    value = new DataTable().Compute(textUp.Text, null).ToString();
+                    value = value.Replace(",", ".");
+                    textUp.Text = value;
+
+                    string val = Convert.ToString(Convert.ToDouble( textUp.Text) * Convert.ToDouble(textUp.Text));
+                    val = val.Replace(",", ".");
+                    textUp.Text = val;
+                    break;
+
+                case "«":
+                    if(textUp.Text.Length!= 0)
+                    {
+                        textUp.Text = textUp.Text.Remove(textUp.Text.Length - 1);
+                    }
                     break;
 
                 default:
