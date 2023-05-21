@@ -16,6 +16,7 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         
         <Grid.ColumnDefinitions>
@@ -29,7 +30,7 @@
         
         <Button Grid.Column="0" Grid.Row="1" FontSize="30">1</Button>
         <Button Grid.Column="0" Grid.Row="2" FontSize="30">4</Button>
-        <Button Grid.Column="0" Grid.Row="3" FontSize="30" >7</Button>
+        <Button Grid.Column="0" Grid.Row="3" FontSize="30">7</Button>
         <Button Grid.Column="1" Grid.Row="1" FontSize="30">2</Button>
         <Button Grid.Column="1" Grid.Row="2" FontSize="30">5</Button>
         <Button Grid.Column="1" Grid.Row="3" FontSize="30">8</Button>
@@ -38,13 +39,15 @@
         <Button Grid.Column="2" Grid.Row="3" FontSize="30">9</Button>
         <Button Grid.Column="0" Grid.Row="4" FontSize="30">0</Button>
 
-        <Button Grid.Column="1" Grid.Row="4" FontSize="30">=</Button>
-        <Button Grid.Column="2" Grid.Row="4" FontSize="30">AC</Button>
+        <Button Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="5" FontSize="30">=</Button>
+        <Button Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="5" FontSize="30">AC</Button>
 
         <Button Grid.Column="3" Grid.Row="1" FontSize="30">+</Button>
         <Button Grid.Column="3" Grid.Row="2" FontSize="30">-</Button>
         <Button Grid.Column="3" Grid.Row="3" FontSize="30">*</Button>
-        <Button Grid.Column="3" Grid.Row="4" FontSize="30">/</Button>
+        <Button Grid.Column="4" Grid.Row="4" FontSize="30">/</Button>
+        <Button Grid.Column="1" Grid.Row="4" FontSize="30">(</Button>
+        <Button Grid.Column="2" Grid.Row="4" FontSize="30">)</Button>
 
     </Grid>
 </Window>
