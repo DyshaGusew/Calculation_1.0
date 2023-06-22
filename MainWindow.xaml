@@ -5,54 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculation_1._0"
         mc:Ignorable="d"
-        Title="Калькулятор" Height="500" Width="350" ResizeMode="CanResizeWithGrip" Icon="/icon_calculation.png">
-    
-    <Grid x:Name="MainRoot" Background="SlateGray">
-        
-        
-        <Grid.RowDefinitions>   
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+        Title="Калькулятор" Height="750" Width="600" ResizeMode="CanResizeWithGrip" Icon="/icon_calculation.png">
+    <Grid Background="#FF232E39" Margin="0,0,0,0">
+        <Grid x:Name="MainRoot" Background="#FF232E39" Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.7*"/>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" FontSize="35" x:Name="textUp" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,15,0"/>
-        
-        <Button Grid.Column="0" Grid.Row="1" FontSize="30">1</Button>
-        <Button Grid.Column="0" Grid.Row="2" FontSize="30">4</Button>
-        <Button Grid.Column="0" Grid.Row="3" FontSize="30">7</Button>
-        <Button Grid.Column="1" Grid.Row="1" FontSize="30">2</Button>
-        <Button Grid.Column="1" Grid.Row="2" FontSize="30">5</Button>
-        <Button Grid.Column="1" Grid.Row="3" FontSize="30">8</Button>
-        <Button Grid.Column="2" Grid.Row="1" FontSize="30">3</Button>
-        <Button Grid.Column="2" Grid.Row="2" FontSize="30">6</Button>
-        <Button Grid.Column="2" Grid.Row="3" FontSize="30">9</Button>
-        <Button Grid.Column="1" Grid.Row="4" FontSize="30">0</Button>
-        <Button Grid.Column="2" Grid.Row="4" FontSize="30">x²</Button>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="0" Grid.Row="4" FontSize="35">,</Button>
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Margin="0, 0, 0, 15">
+                <Border Background="#FF020509" BorderBrush="#FF131F29" BorderThickness="16">
+                    <TextBlock  FontSize="45" x:Name="textUp" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,15,0" Foreground="#FFAEF33A"/>
+                </Border>
+            </Grid>
 
-        <Button Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="1" FontSize="45">«</Button>
-        <Button Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="5" FontSize="30">AC</Button>
-        <Button Grid.Column="3" Grid.Row="2" FontSize="35">-</Button>
-        <Button Grid.Column="4" Grid.Row="2" FontSize="35">+</Button>
-        <Button Grid.Column="3" Grid.Row="3" FontSize="35">*</Button>
-        <Button Grid.Column="4" Grid.Row="3" FontSize="35">/</Button>
-        <Button Grid.Column="3" Grid.Row="4" FontSize="35">(</Button>
-        <Button Grid.Column="4" Grid.Row="4" FontSize="35">)</Button>
 
-        <Button Grid.Column="2" Grid.Row="5"  Grid.ColumnSpan="3" FontSize="50">=</Button>
+            <Button Grid.Column="0" Grid.Row="1" FontSize="25" Foreground="#FFF300D3" Background="#FF0A1117" BorderBrush="#FF131F29">MC</Button>
+            <Button Grid.Column="1" Grid.Row="1" FontSize="25" Foreground="#FFF300D3" Background="#FF0A1117" BorderBrush="#FF131F29">MR</Button>
+            <Button Grid.Column="2" Grid.Row="1" FontSize="25" Foreground="#FFF300D3" Background="#FF0A1117" BorderBrush="#FF131F29">MS</Button>
+            <Grid Name="OtherM" Grid.Column="3" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button FontSize="25" Grid.Column="1" Foreground="#FFF300D3" Background="#FF0A1117" BorderBrush="#FF131F29">M-</Button>
+                <Button FontSize="25" Grid.Column="0"  Foreground="#FFF300D3" Background="#FF0A1117" BorderBrush="#FF131F29">M+</Button>
+            </Grid>
 
+            <Button Grid.Column="0" Grid.Row="2" FontSize="30" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FF00C7E9">C</Button>
+            <Button Grid.Column="1" Grid.Row="2" FontSize="30" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FF00C7E9">CE</Button>
+            <Button Grid.Column="2" Grid.Row="2" FontSize="30" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FF00C7E9">%</Button>
+
+            <Button Grid.Column="0" Grid.Row="3" FontSize="30" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FF00C7E9">1/x</Button>
+            <Button Grid.Column="1" Grid.Row="3" FontSize="35" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FF00C7E9">x²</Button>
+            <Button Grid.Column="2" Grid.Row="3" FontSize="35" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FF00C7E9">√x</Button>
+
+            <Button Grid.Column="0" Grid.Row="4" FontSize="35" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFF4F4F4" >7</Button>
+            <Button Grid.Column="1" Grid.Row="4" FontSize="30" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFF4F4F4">8</Button>
+            <Button Grid.Column="2" Grid.Row="4" FontSize="30" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFF4F4F4">9</Button>
+
+            <Button Grid.Column="0" Grid.Row="5" FontSize="35" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFF4F4F4">4</Button>
+            <Button Grid.Column="1" Grid.Row="5" FontSize="30" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFF4F4F4">5</Button>
+            <Button Grid.Column="2" Grid.Row="5" FontSize="30" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFF4F4F4">6</Button>
+
+            <Button Grid.Column="0" Grid.Row="6" FontSize="35" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFF4F4F4">1</Button>
+            <Button Grid.Column="1" Grid.Row="6" FontSize="30" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFF4F4F4">2</Button>
+            <Button Grid.Column="2" Grid.Row="6" FontSize="30" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFF4F4F4">3</Button>
+
+            <Button Grid.Column="0" Grid.Row="7" FontSize="30" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFF4F4F4">+/-</Button>
+            <Button Grid.Column="1" Grid.Row="7" FontSize="30" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFF4F4F4">0</Button>
+            <Button Grid.Column="2" Grid.Row="7" FontSize="40" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFF4F4F4">,</Button>
+
+            <Button Grid.Column="4" Grid.Row="2" FontSize="35" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FF00C7E9">⌫</Button>
+            <Button Grid.Column="3" Grid.Row="3" FontSize="35" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FF00C7E9">+</Button>
+            <Button Grid.Column="4" Grid.Row="4" FontSize="35" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FF00C7E9">*</Button>
+            <Button Grid.Column="4" Grid.Row="5" FontSize="35" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FF00C7E9">-</Button>
+            <Button Grid.Column="4" Grid.Row="6" FontSize="35" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FF00C7E9">÷</Button>
+
+
+            <Button Grid.Column="4" Grid.Row="7"  Grid.ColumnSpan="3" FontSize="50" Background="#FF0A1117" BorderBrush="#FF131F29" Foreground="#FFFF9619">=</Button>
+
+        </Grid>
     </Grid>
 </Window>

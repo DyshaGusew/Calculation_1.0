@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml.Linq;
 
 namespace Calculation_1._0
 {
@@ -20,6 +21,15 @@ namespace Calculation_1._0
                 {
                     ((Button)element).Click += ButtonClick;
                 }
+            }
+
+            foreach (UIElement el in OtherM.Children)
+            {
+                if (el is Button)
+                {
+                    ((Button)el).Click += ButtonClick;
+                }
+
             }
         }
 
