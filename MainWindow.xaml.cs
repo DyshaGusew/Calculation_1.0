@@ -40,8 +40,22 @@ namespace Calculation_1._0
             switch (textPlane)
             {
                 
-                case "AC":
+                case "C":
                     textUp.Text = string.Empty;
+                    break;
+
+                case "CE":
+                    int i = textUp.Text.Length-1;
+                    while (i >= 1)
+                    {
+                        if (textUp.Text[i] == '+' || textUp.Text[i] == '-' || textUp.Text[i] == '/' || textUp.Text[i] == '*' || textUp.Text[i] == '%')
+                        {
+                            break;
+                        }
+                        i--;
+                    }
+
+                    textUp.Text = textUp.Text.Substring(0, i);
                     break;
 
                 case "=":
@@ -54,6 +68,14 @@ namespace Calculation_1._0
                     textUp.Text += ".";
                     break;
 
+                case "÷":
+                    textUp.Text += "/";
+                    break;
+
+                case "✕":
+                    textUp.Text += "*";
+                    break;
+
                 case "x²":
                     value = new DataTable().Compute(textUp.Text, null).ToString();
                     value = value.Replace(",", ".");
@@ -64,7 +86,7 @@ namespace Calculation_1._0
                     textUp.Text = val;
                     break;
 
-                case "«":
+                case "⌫":
                     if(textUp.Text.Length!= 0)
                     {
                         textUp.Text = textUp.Text.Remove(textUp.Text.Length - 1);
