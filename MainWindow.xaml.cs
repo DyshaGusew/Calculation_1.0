@@ -6,11 +6,12 @@ using System.Xml.Linq;
 
 namespace Calculation_1._0
 {
-    
     public partial class MainWindow : System.Windows.Window
     {
         decimal MemoryStore = 0;
-        decimal EndResult = 0;
+        bool equal = false;
+        string input = "";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -46,20 +47,24 @@ namespace Calculation_1._0
 
                 case "CE":
                     int i = textUp.Text.Length-1;
-                    while (i >= 1)
+                    if(textUp.Text != "")
                     {
-                        if (textUp.Text[i] == '+' || textUp.Text[i] == '-' || textUp.Text[i] == '/' || textUp.Text[i] == '*' || textUp.Text[i] == '%')
+                        while (i >= 1)
                         {
-                            break;
+                            if (textUp.Text[i] == '+' || textUp.Text[i] == '-' || textUp.Text[i] == '/' || textUp.Text[i] == '*' || textUp.Text[i] == '%')
+                            {
+                                break;
+                            }
+                            i--;
                         }
-                        i--;
-                    }
 
-                    textUp.Text = textUp.Text.Substring(0, i);
+                        textUp.Text = textUp.Text.Substring(0, i);
+                    }
+                    
                     break;
 
                 case "1/x":
-                    if(textUp.Text != "")
+                    if(textUp.Text != "" && textUp.Text != "0")
                     {
                         string value_ = new DataTable().Compute("1.0/"+textUp.Text, null).ToString();
                         textUp.Text = value_.Replace(",", ".");
@@ -116,28 +121,45 @@ namespace Calculation_1._0
                     break;
 
                 case "÷":
-                    textUp.Text += "/";
+                    input = textUp.Text+ "/" ;
+                    textUp.Text = "";
                     break;
 
                 case "✕":
-                    textUp.Text += "*";
+                    input = textUp.Text + "*";
+                    textUp.Text = "";
                     break;
 
-                case "x²":    
-                    textUp.Text = new DataTable().Compute(new DataTable().Compute(textUp.Text.Replace(",", "."), null).ToString().Replace(",", ".") + "*" + new DataTable().Compute(textUp.Text.Replace(",", "."), null).ToString().Replace(",", "."), null).ToString().Replace(",", ".");
+                case "+":
+                    input = textUp.Text + "+";
+                    textUp.Text = "";
                     break;
+
+                case "-":
+                    input = textUp.Text + "-";
+                    textUp.Text = "";
+                    break;
+
+                case "x²":
+                    if (textUp.Text != "")
+                    {
+                        textUp.Text = new DataTable().Compute(new DataTable().Compute(textUp.Text.Replace(",", "."), null).ToString().Replace(",", ".") + "*" + new DataTable().Compute(textUp.Text.Replace(",", "."), null).ToString().Replace(",", "."), null).ToString().Replace(",", ".");
+                    }
+                        break;
 
                 case "⌫":
                     if(textUp.Text.Length!= 0)
                     {
                         textUp.Text = textUp.Text.Remove(textUp.Text.Length - 1);
+                        input = input.Remove(input.Length - 1);
                     }
                     break;
 
-                case "=":
-                    string value = new DataTable().Compute(textUp.Text, null).ToString();
+                case "=": 
+                    string value = new DataTable().Compute(input, null).ToString();
                     value = value.Replace(",", ".");
                     textUp.Text = value;
+                    equal = true;
                     break;
 
                 case "MS":
@@ -163,10 +185,32 @@ namespace Calculation_1._0
                         textUp.Text = (Convert.ToDecimal(new DataTable().Compute(textUp.Text, null)) - MemoryStore).ToString().Replace(",", ".");
                     break;
 
-
+                
 
                 default:
-                    textUp.Text += textPlane;
+                    if(textUp.Text == "0")
+                    {
+                        textUp.Text = textPlane;
+                        input = textPlane;
+                    }
+
+                    else
+                    {
+                        if (equal == true)
+                        {
+                            textUp.Text = textPlane;
+                            input = textUp.Text;
+                            equal = false;
+                        }
+                        else
+                        {
+                            textUp.Text += textPlane;
+                            input += textUp.Text;
+                        }
+                    }
+                       
+                        
+
                     break;
             }
 
